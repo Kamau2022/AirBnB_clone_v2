@@ -6,7 +6,7 @@ from fabric.api import *
 import os.path
 
 env.user = 'ubuntu'
-env.hosts = ['107.22.144.60', '54.157.189.192']
+env.hosts = ['54.157.189.192, 107.22.144.60']
 
 
 def do_deploy(archive_path):
@@ -23,7 +23,8 @@ def do_deploy(archive_path):
         run('rm -rf {}/web_static'.format(path))
         run('rm /tmp/{}'.format(archive))
         run('rm -rf {}'.format(link))
-        run('ln -s {} {}'.format(file_archive), link)
+        run('ln -s {} {}'.format(path, link))
+        print('New version deployed!')
         return True
     else:
         return False
