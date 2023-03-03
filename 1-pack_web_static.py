@@ -13,6 +13,6 @@ def do_pack():
     archive = local("tar -cvzf versions/web_static_{}.tgz web_static/".
                     format(time))
     if archive:
-        return ("versions/web_static_{:s}.tgz".format(time))
+        return ("versions/web_static_{}.tgz".format(time))
     else:
         return None
